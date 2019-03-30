@@ -1,9 +1,10 @@
-<app-header></app-header>
+<app-header (changeTab)="onChangeSelectedTab($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <router-outlet></router-outlet>
+      <!-- <app-recipes *ngIf="selectedTab === 'recipes'"></app-recipes> -->
+      <!-- <app-shopping-list *ngIf="selectedTab !== 'recipes'"></app-shopping-list> -->
     </div>
   </div>
 </div>
