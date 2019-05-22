@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import * as firebase from "firebase";
+import { ENV } from "../../env";
 
 @Component({
   selector: "app-root",
@@ -7,6 +8,7 @@ import * as firebase from "firebase";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
+  constructor(private env: ENV) {}
   // selectedTab: string = "recipes";
 
   // onChangeSelectedTab(newSelectedTab: string) {
@@ -15,8 +17,8 @@ export class AppComponent implements OnInit {
   loadedFeature = "recipe";
   ngOnInit() {
     firebase.initializeApp({
-      apiKey: "AIzaSyD_Hv77Vmkc18Yo1lshGrGZNzbwf02B6Cg",
-      authDomain: "ng-http-a95a7.firebaseio.com"
+      apiKey: this.env.API_KEY,
+      authDomain: this.env.AUTH_DOMAIN
     });
   }
   title = "shopping-recipes";
